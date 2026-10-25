@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "AdVersary",
+  "version": "0.1.0",
+  "description": "Adversarial data obfuscation for programmatic ad tracking. Generates synthetic persona browsing while you are away from the keyboard.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "permissions": [
+    "idle",
+    "storage",
+    "alarms",
+    "history",
+    "tabs",
+    "tabHide",
+    "scripting",
+    "sessions"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["src/background.js"],
+    "type": "module"
+  },
+  "action": {
+    "default_title": "AdVersary",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon.svg",
+      "96": "icons/icon.svg"
+    }
+  },
+  "options_ui": {
+    "page": "src/popup/popup.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "adversary@local.dev",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

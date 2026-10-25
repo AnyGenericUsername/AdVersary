@@ -1,0 +1,29 @@
+{
+  "name": "adversary",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Firefox MV3 extension for adversarial ad-profile obfuscation.",
+  "type": "module",
+  "scripts": {
+    "start": "web-ext run --firefox=firefox --browser-console",
+    "lint": "web-ext lint",
+    "build": "web-ext build --overwrite-dest",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  },
+  "webExt": {
+    "sourceDir": ".",
+    "artifactsDir": "dist",
+    "ignoreFiles": [
+      "test",
+      "docs",
+      "dist",
+      "package.json",
+      "package-lock.json",
+      "README.md",
+      ".gitignore"
+    ]
+  }
+}

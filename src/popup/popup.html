@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdVersary</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../../icons/icon.svg" alt="" width="28" height="28">
+    <h1>AdVersary</h1>
+    <label class="switch" title="Enable idle-time sessions">
+      <input type="checkbox" id="enabled">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section id="permission-banner" class="banner" hidden>
+    <p>AdVersary needs access to all sites to load persona pages in background tabs.</p>
+    <button id="grant" class="primary">Grant site access</button>
+  </section>
+
+  <section class="status">
+    <div><span class="k">Host</span><span id="idle-state" class="v">–</span></div>
+    <div><span class="k">Session</span><span id="running" class="v">–</span></div>
+    <div><span class="k">Next</span><span id="next-at" class="v">–</span></div>
+    <div><span class="k">Last hour</span><span id="last-hour" class="v">–</span></div>
+    <div><span class="k">Total</span><span id="total" class="v">–</span></div>
+  </section>
+
+  <section class="actions">
+    <button id="run-now">Run session now</button>
+    <button id="stop">Stop</button>
+  </section>
+
+  <details>
+    <summary>Settings</summary>
+    <form id="settings">
+      <label>Persona <select name="personaId" id="personaId"></select></label>
+      <label>Search engine <select name="searchEngine" id="searchEngine"></select></label>
+      <label>Idle threshold (s) <input type="number" name="idleThresholdSec" min="15" step="1"></label>
+      <label>Mean interval (s) <input type="number" name="meanIntervalSec" min="1" step="1"></label>
+      <label>Minimum gap (s) <input type="number" name="minIntervalSec" min="0" step="1"></label>
+      <label>Max sessions / hour <input type="number" name="maxSessionsPerHour" min="1" step="1"></label>
+      <label>Max link depth <input type="number" name="maxDepth" min="0" max="5" step="1"></label>
+      <button type="submit" class="primary">Save</button>
+    </form>
+  </details>
+
+  <section>
+    <div class="log-header">
+      <h2>Recent activity</h2>
+      <button id="clear-log" class="link">clear</button>
+    </div>
+    <ol id="log"></ol>
+  </section>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
